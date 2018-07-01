@@ -1,0 +1,14 @@
+#!/bin/bash
+
+BACKUP_NAME="backup-postgres"
+
+BB_BUCKET_NAME="backblaze-bucket-name"
+
+REMOVE_OLDER_THAN="60D"
+
+PSQL_HOST="postgres"
+PSQL_USER="postgres"
+PSQL_PASSFILE="/tmp/pgbackup/.pgpass"
+PSQL_DEST="/var/backups/psql"
+
+. "$DIR"/includes/config-global.sh

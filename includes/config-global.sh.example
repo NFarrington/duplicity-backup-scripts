@@ -1,0 +1,19 @@
+#!/bin/bash
+
+BB_ACCOUNT_ID="backblaze-account-id"
+BB_APPLICATION_KEY="backblaze-application-id"
+
+GPG_ENCRYPT_KEY="encryption-key-fingerprint"
+GPG_SIGN_KEY="signing-key-fingerprint"
+export PASSPHRASE="encryption-key-passphrase"
+export SIGN_PASSPHRASE="signing-key-passphrase"
+
+LOGFILE="/var/log/duplicity/${BACKUP_NAME}.log"
+CURRENTLOGFILE="/var/log/duplicity/${BACKUP_NAME}.latest.log"
+
+MAILADDR="me@neilfarrington.com"
+MAILSUBJ="Duplicity Backup Log for $(hostname) - $(date +%Y-%m-%d)"
+
+TODAY=$(date +%d%m%Y)
+
+DEST="b2://${BB_ACCOUNT_ID}:${BB_APPLICATION_KEY}@${BB_BUCKET_NAME}"

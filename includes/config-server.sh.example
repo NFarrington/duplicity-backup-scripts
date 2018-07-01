@@ -1,0 +1,9 @@
+#!/bin/bash
+
+BACKUP_NAME="backup-server"
+
+BB_BUCKET_NAME="backblaze-bucket-name"
+
+REMOVE_OLDER_THAN="60D"
+
+. "$DIR"/includes/config-global.sh

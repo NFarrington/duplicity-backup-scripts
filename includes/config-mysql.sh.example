@@ -1,0 +1,13 @@
+#!/bin/bash
+
+BACKUP_NAME="backup-mysql"
+
+BB_BUCKET_NAME="backblaze-bucket-name"
+
+REMOVE_OLDER_THAN="60D"
+
+MYSQL_USER="root"
+MYSQL_PASS="password"
+MYSQL_DEST="/var/backups/mysql"
+
+. "$DIR"/includes/config-global.sh
