@@ -4,6 +4,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 . "$DIR"/includes/config-postgres.sh
 
+EXIT=0
+
 # Clear the old log file
 cat /dev/null > "$CURRENTLOGFILE"
 
@@ -63,6 +65,7 @@ if [ $is_running -eq 0 ]; then
     BACKUPSTATUS=`cat "$CURRENTLOGFILE" | grep Errors | awk '{ print $2 }'`
     if [ "$BACKUPSTATUS" != "0" ]; then
         cat "$CURRENTLOGFILE" | mail -s "$MAILSUBJ" "$MAILADDR"
+        EXIT=1
     fi
 
     # Append the current log file to the main log file
@@ -70,3 +73,5 @@ if [ $is_running -eq 0 ]; then
 fi
 
 . "$DIR"/includes/cleanup.sh
+
+exit $EXIT

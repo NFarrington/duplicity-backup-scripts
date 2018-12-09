@@ -12,5 +12,8 @@ duplicity \
     --restore-time "$1" \
     --file-to-restore "$2" \
     "$DEST" "$3"
+EXIT=$?
 
 . "$DIR"/includes/cleanup.sh
+
+exit $EXIT

@@ -4,6 +4,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 . "$DIR"/includes/config-server.sh
 
+EXIT=0
+
 is_running=$(ps -ef | grep duplicity | grep python | wc -l)
 
 if [ ! -d /var/log/duplicity ]; then
@@ -53,6 +55,7 @@ if [ $is_running -eq 0 ]; then
     BACKUPSTATUS=`cat "$CURRENTLOGFILE" | grep Errors | awk '{ print $2 }'`
     if [ "$BACKUPSTATUS" != "0" ]; then
         cat "$CURRENTLOGFILE" | mail -s "$MAILSUBJ" "$MAILADDR"
+        EXIT=1
     fi
 
     # Append the current log file to the main log file
@@ -60,3 +63,5 @@ if [ $is_running -eq 0 ]; then
 fi
 
 . "$DIR"/includes/cleanup.sh
+
+exit $EXIT
