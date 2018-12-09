@@ -11,7 +11,7 @@ export SIGN_PASSPHRASE="signing-key-passphrase"
 LOGFILE="/var/log/duplicity/${BACKUP_NAME}.log"
 CURRENTLOGFILE="/var/log/duplicity/${BACKUP_NAME}.latest.log"
 
-MAILADDR="me@neilfarrington.com"
+MAILADDR="email@example.com"
 MAILSUBJ="Duplicity Backup Log for $(hostname) - $(date +%Y-%m-%d)"
 
 TODAY=$(date +%d%m%Y)
