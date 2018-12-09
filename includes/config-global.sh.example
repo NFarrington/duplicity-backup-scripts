@@ -16,4 +16,5 @@ MAILSUBJ="Duplicity Backup Log for $(hostname) - $(date +%Y-%m-%d)"
 
 TODAY=$(date +%d%m%Y)
 
-DEST="b2://${BB_ACCOUNT_ID}:${BB_APPLICATION_KEY}@${BB_BUCKET_NAME}"
+export FTP_PASSWORD="${BB_APPLICATION_KEY_SECRET}"
+DEST="b2://${BB_APPLICATION_KEY_ID}@${BB_BUCKET_NAME}"
