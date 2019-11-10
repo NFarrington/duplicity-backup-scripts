@@ -2,7 +2,7 @@
 
 BACKUP_NAME="backup-mysql"
 
-BB_BUCKET_NAME="backblaze-bucket-name"
+DESTINATION_PATH="bucket-name"
 
 REMOVE_OLDER_THAN="60D"
 

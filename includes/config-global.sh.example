@@ -1,7 +1,11 @@
 #!/bin/bash
 
-BB_ACCOUNT_ID="backblaze-account-id"
-BB_APPLICATION_KEY="backblaze-application-id"
+DESTINATION_PROTOCOL="protocol"
+DESTINATION_USERNAME="destination-username"
+DESTINATION_PASSWORD="destination-password"
+export AWS_ACCESS_KEY_ID="${DESTINATION_USERNAME}"
+export AWS_SECRET_ACCESS_KEY="${DESTINATION_PASSWORD}"
+export FTP_PASSWORD="${DESTINATION_PASSWORD}"
 
 GPG_ENCRYPT_KEY="encryption-key-fingerprint"
 GPG_SIGN_KEY="signing-key-fingerprint"
@@ -16,5 +20,4 @@ MAILSUBJ="Duplicity Backup Log for $(hostname) - $(date +%Y-%m-%d)"
 
 TODAY=$(date +%d%m%Y)
 
-export FTP_PASSWORD="${BB_APPLICATION_KEY_SECRET}"
-DEST="b2://${BB_APPLICATION_KEY_ID}@${BB_BUCKET_NAME}"
+DEST="${DESTINATION_PROTOCOL}://${DESTINATION_USERNAME}@${DESTINATION_PATH}"

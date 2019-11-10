@@ -1,6 +1,6 @@
 # Duplicity Backup Scripts
 
-Backup scripts for use with Duplicity and Backblaze.
+Backup scripts for use with Duplicity.
 
 To make a feature request, or to report an issue, please [submit a new GitHub issue](https://github.com/NFarrington/duplicity-backup-scripts/issues/new).
 
